@@ -879,12 +879,12 @@ class Pirumage_Package
 
     public function getApiStability()
     {
-        return (string) $this->package->stability->api;
+        return (string) ($this->package->stability->api?$this->package->stability->api:$this->package->stability);
     }
 
     public function getStability()
     {
-        return (string) $this->package->stability->release;
+        return (string) ($this->package->stability->release?$this->package->stability->release:$this->package->stability);
     }
 
     public function getMaintainers()
