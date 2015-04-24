@@ -163,7 +163,9 @@ class Pirumage_CLI
 
             return 1;
         }
-
+        
+        shell_exec('tar -zxvf '.$this->options[3].' package.xml');
+        shell_exec('mv package.xml '. pathinfo($this->options[3], PATHINFO_DIRNAME) . '/');
         if (!is_file(pathinfo($this->options[3], PATHINFO_DIRNAME) . '/package.xml')) {
             echo $this->formatter->formatSection('ERROR', sprintf('The package.xml file "%s" does not exist.', pathinfo($this->options[3], PATHINFO_DIRNAME) . '/package.xml'));
 
